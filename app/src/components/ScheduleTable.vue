@@ -4,13 +4,7 @@
       <thead>
       <tr>
         <th class="header-cell">節\期</th>
-        <th class="header-cell">一</th>
-        <th class="header-cell">二</th>
-        <th class="header-cell">三</th>
-        <th class="header-cell">四</th>
-        <th class="header-cell">五</th>
-        <th class="header-cell">六</th>
-        <th class="header-cell">日</th>
+        <th v-for="(d) in weekday" :key="d">{{ d }}</th>
       </tr>
       </thead>
       <tbody>
@@ -32,6 +26,9 @@ export default {
   data() {
     return {
       columns: 8, // Total columns
+      weekday: [
+         '一', '二', '三', '四', '五', '六', '日'
+      ],
       timeSlots: [
         { key: 'A', value: '7:00\n~\n7:50' },
         { key: '1', value: '8:10\n~\n9:00' },
