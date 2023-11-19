@@ -4,7 +4,7 @@
       <thead>
       <tr>
         <th class="header-cell">節\期</th>
-        <th v-for="(d) in weekday" :key="d">{{ d }}</th>
+        <th class="header-cell" v-for="(d) in weekday" :key="d">{{ d }}</th>
       </tr>
       </thead>
       <tbody>
