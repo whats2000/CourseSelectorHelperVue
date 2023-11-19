@@ -1,9 +1,9 @@
 <template>
   <div class="schedule-table">
-    <table class="table table-borderless">
+    <table class="table table-bordered  border-white border-5 rounded-5 table-secondary">
       <thead>
       <tr>
-        <th>節次\日期</th>
+        <th>節\期</th>
         <th>一</th>
         <th>二</th>
         <th>三</th>
