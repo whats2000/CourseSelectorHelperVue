@@ -19,7 +19,7 @@
           <div class="time-slot-key">{{ timeSlot.key }}</div>
           <div class="time-slot-value">{{ timeSlot.value }}</div>
         </td>
-        <td class="course-cell" v-for="n in columns - 1" :key="n">---</td>
+        <td class="course-cell" v-for="n in columns - 1" :key="n"></td>
       </tr>
       </tbody>
     </table>
