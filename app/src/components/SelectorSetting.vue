@@ -1,6 +1,6 @@
 <template>
   <div class="selector-setting">
-   Nothing Currently!
+   Nothing Currently
   </div>
 </template>
 
