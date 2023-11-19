@@ -1,16 +1,16 @@
 <template>
   <div class="schedule-table">
-    <table class="table table-bordered  border-white border-5 rounded-5 table-secondary">
+    <table class="table table-bordered border-white border-5 rounded-5 table-secondary">
       <thead>
       <tr>
-        <th>節\期</th>
-        <th>一</th>
-        <th>二</th>
-        <th>三</th>
-        <th>四</th>
-        <th>五</th>
-        <th>六</th>
-        <th>日</th>
+        <th class="header-cell">節\期</th>
+        <th class="header-cell">一</th>
+        <th class="header-cell">二</th>
+        <th class="header-cell">三</th>
+        <th class="header-cell">四</th>
+        <th class="header-cell">五</th>
+        <th class="header-cell">六</th>
+        <th class="header-cell">日</th>
       </tr>
       </thead>
       <tbody>
@@ -19,7 +19,7 @@
           <div class="time-slot-key">{{ timeSlot.key }}</div>
           <div class="time-slot-value">{{ timeSlot.value }}</div>
         </td>
-        <td v-for="n in columns - 1" :key="n">---</td>
+        <td class="course-cell" v-for="n in columns - 1" :key="n">---</td>
       </tr>
       </tbody>
     </table>
@@ -60,8 +60,8 @@ table {
   text-align: center;
 }
 
-th {
-  background-color: bisque;
+.header-cell {
+  border-radius: 10%;
 }
 
 .schedule-table {
@@ -70,6 +70,7 @@ th {
 
 .time-slot-cell {
   width: 5%;
+  border-radius: 10%;
 }
 
 .time-slot-key {
@@ -79,5 +80,9 @@ th {
 
 .time-slot-value {
   display: block;
+}
+
+.course-cell {
+  border-radius: 10%;
 }
 </style>
