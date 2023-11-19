@@ -62,6 +62,7 @@ table {
 
 .header-cell {
   border-radius: 10%;
+  background-color: lightgray !important;
 }
 
 .schedule-table {
@@ -71,6 +72,7 @@ table {
 .time-slot-cell {
   width: 5%;
   border-radius: 10%;
+  background-color: lightgrey !important;
 }
 
 .time-slot-key {
