@@ -11,7 +11,7 @@ on:
       - 'app/**'
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     strategy:
@@ -36,8 +36,8 @@ jobs:
         run: npm run build
         working-directory: ./app
 
-      - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v2
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          name: build-artifacts
-          path: app/dist/
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./app/dist
