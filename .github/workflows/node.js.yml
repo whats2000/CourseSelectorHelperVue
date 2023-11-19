@@ -1,31 +1,45 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-
 name: Node.js CI
 
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - 'app/**'
   pull_request:
     branches: [ "main" ]
+    paths:
+      - 'app/**'
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        node-version: [16.x] # Adjust the Node.js version as needed
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn' # or 'npm' if you're using npm
+
+      - name: Change to App Directory
+        run: cd app
+
+      - name: Install Dependencies
+        run: yarn install
+        working-directory: ./app
+
+      - name: Build
+        run: yarn build
+        working-directory: ./app
+
+      - name: Run Tests
+        run: yarn test
+        working-directory: ./app
+
+    # Add any additional steps as needed
